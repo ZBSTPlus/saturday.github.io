@@ -1,0 +1,40 @@
+---
+layout: anti_cc_default
+title: Text Manipulator
+---
+
+<div class="row mb-3">
+    <div class="col-10">
+        <textarea type="text" rows="5" class="form-control" placeholder="Enter Your Data Here" id="data_inp"></textarea>
+    </div>
+    <div class="col align-self-center">
+        <button onclick="construct_text()" class="btn btn-primary">Generate Body</button>
+    </div>
+</div>
+<div class="row mb-3">
+        <textarea type="text" rows="6" class="form-control" placeholder="Enter Your Pattern Here" id="pattern" autofocus></textarea>
+</div>
+<div class="row mb-3">
+    <input type="text" class="form-control" placeholder="Enter Your Line Separator Here" id="linesep">
+</div>
+<div class="row mb-3">
+    <pre id="result"></pre>
+</div>
+
+    <script type="text/javascript">
+        function construct_text() {
+            let pattern = document.getElementById('pattern').value
+            let data_rows = document.getElementById('data_inp').value
+            let linesep = document.getElementById('linesep').value ? document.getElementById('linesep').value : ''
+
+            let resp_out = [];
+            for (row of data_rows.split('\n')) {
+                let cols = row.split(',');
+                let temp_pattern = pattern;
+                cols.map( (value,index) => temp_pattern = temp_pattern.replaceAll('{'+index+'}',cols[index].trim()) )
+                resp_out.push(temp_pattern);
+            }
+            navigator.clipboard.writeText(resp_out.join(linesep));
+            document.getElementById("result").innerText = resp_out.join('\n');
+        }
+    </script>
