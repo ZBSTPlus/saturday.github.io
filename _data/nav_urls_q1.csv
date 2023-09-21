@@ -1,5 +1,5 @@
 name,url
 Text Manipulator,q1/TextManipulator.html
-Page B,q1/page_b.html
-Page C,q1/page_c.html
-Page D,q1/page_d.html
+TextSorter,q1/TextSorter.html
+TextReplace,q1/TextReplace.html
+TextDeDupe,q1/TextDeDupe.html

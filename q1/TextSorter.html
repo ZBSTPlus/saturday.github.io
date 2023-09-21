@@ -1,0 +1,26 @@
+---
+layout: anti_cc_default
+title: Text Sorter
+---
+
+<div class="row mb-3">
+    <div class="col-10">
+        <textarea type="text" rows="5" class="form-control" placeholder="Enter Your Data Here" id="data_inp"></textarea>
+    </div>
+    <div class="col align-self-center">
+        <button onclick="construct_text()" class="btn btn-primary">Sort Text</button>
+    </div>
+</div>
+<div class="row mb-3">
+    <pre id="result"></pre>
+</div>
+
+    <script type="text/javascript">
+        function construct_text() {
+            let data_rows = document.getElementById('data_inp').value
+            let data = data_rows.split('\n');
+            data.sort();
+            navigator.clipboard.writeText(data.join('\n'));
+            document.getElementById("result").innerText = data.join('\n');
+        }
+    </script>

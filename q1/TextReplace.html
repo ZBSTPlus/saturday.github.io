@@ -1,0 +1,36 @@
+---
+layout: anti_cc_default
+title: Text Replace
+---
+
+<div class="row mb-3">
+    <div class="col-10">
+        <textarea type="text" rows="8" class="form-control" placeholder="Enter Your Text Here" id="data_inp"></textarea>
+    </div>
+    <div class="col align-self-center">
+        <button onclick="construct_text()" class="btn btn-primary">Replace</button>
+    </div>
+</div>
+<div class="row mb-3">
+    <div class="col">
+        <input type="text" class="form-control" placeholder="From" id="f">
+    </div>
+    <div class="col">
+        <input type="text" class="form-control" placeholder="To" id="t">
+    </div>
+</div>
+
+<div class="row mb-3">
+    <pre id="result"></pre>
+</div>
+
+    <script type="text/javascript">
+        function construct_text() {
+            let data = document.getElementById('data_inp').value
+            let f = document.getElementById('f').value
+            let t = document.getElementById('t').value
+            data = data.replaceAll(f,t)
+            navigator.clipboard.writeText(data);
+            document.getElementById("result").innerText = data;
+        }
+    </script>
