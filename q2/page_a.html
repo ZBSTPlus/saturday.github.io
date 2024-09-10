@@ -1,1 +1,18 @@
-Q2 Page A
+---
+layout: anti_cc_default
+title: Date Now
+---
+    <h1 id="currentDateTime"></h1>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date(Date.now());
+            document.getElementById('currentDateTime').innerText = now.toString();
+        }
+
+        // Update the date and time immediately
+        updateDateTime();
+
+        // Optionally, update the date and time every second
+        setInterval(updateDateTime, 200);
+    </script>
